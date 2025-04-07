@@ -1,0 +1,357 @@
+/* Design Selector Layout */
+.design-selector {
+  display: flex;
+  gap: 1.5rem; /* Reduced gap between panels */
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  background-color: #ffffff57;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  flex-wrap: nowrap; /* Prevent wrapping */
+  justify-content: space-between; /* Ensure panels are spaced evenly */
+  align-items: flex-start; /* Align panels at the top */
+  overflow: hidden; /* Prevent content overflow */
+}
+
+/* Left Panel */
+.left-panel {
+  flex: 1;
+  max-width: 225px; /* Reduced width for better fit */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: linear-gradient(10deg, #035e5d28, #8e8d7846); /* Subtle off-white/gray gradient */
+  border-radius: 16px;
+  padding: 1.5rem; /* Reduced padding */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.left-panel h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #555;
+  text-align: left;
+}
+
+/* Finishes Section */
+.finishes-section {
+  margin-top: 0.6rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.39); /* Transparent white background */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.finishes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two buttons per row */
+  gap: 0.5rem; /* Space between buttons */
+}
+
+.finish-box,
+.room-box {
+  background: transparent;
+  border: 1px solid #ccc;
+  color: #333;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.finish-box:hover,
+.room-box:hover {
+  background: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.finish-box.selected,
+.room-box.selected {
+  background: rgba(0, 0, 0, 0.1); /* Light background for selected */
+  border-color: #035e5d; /* Highlight border */
+  color: #035e5d; /* Highlight text color */
+}
+
+.finish-icon {
+  font-size: 1.2rem; /* Icon size */
+  margin-right: 0.5rem; /* Space between icon and text */
+}
+
+.checkmark {
+  font-size: 1rem;
+  color: #035e5d; /* Highlight color for selected state */
+}
+
+/* Rooms Section */
+.rooms-section {
+  margin-top: 0.1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.39); /* Transparent white background */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.rooms-section h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #555;
+  text-align: left;
+  font-size: 1.2rem; /* Slightly larger font for section title */
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two buttons per row */
+  gap: 0.5rem; /* Space between buttons */
+}
+
+.checkmark {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  color: inherit; /* Inherit color from parent */
+}
+
+/* Colors Section */
+.colors-section {
+  margin-top: 0;
+  padding: 0.8rem; /* Reduced padding for a more compact look */
+  background: rgba(255, 255, 255, 0.39); /* Transparent white background */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Color Bar Container */
+.color-bar-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 0.5rem; /* Reduced gap between scroll buttons and color bar */
+}
+
+/* Scroll Buttons */
+.scroll-button {
+  background: transparent; /* Transparent background for a sleek look */
+  border: none; /* Remove border */
+  color: #333; /* Arrow color */
+  font-size: 1.2rem; /* Adjust arrow size */
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.scroll-button:hover {
+  color: #035e5d; /* Highlight color on hover */
+  transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+/* Horizontal Scrollable Color Bar */
+.color-bar {
+  display: flex;
+  gap: 0.8rem; /* Reduced gap between color items */
+  overflow: hidden;
+  scroll-behavior: smooth;
+  flex: 1;
+  padding: 0.5rem 0; /* Top & bottom padding */
+  padding-left: 0.5rem; /* 👈 New: space before first circle */
+}
+
+/* Color Items */
+.color-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem; /* Reduced gap between circle and name */
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  flex: 0 0 auto; /* Prevent shrinking and ensure proper spacing */
+}
+
+.color-item:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+/* Color Circle */
+.color-circle {
+  width: 40px; /* Reduced size for a more compact look */
+  height: 40px;
+  margin-left: 3px;
+  border-radius: 30%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 0.1px solid #0d0e0e77;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.color-circle:hover {
+  border-color: rgba(0, 0, 0, 0.2); /* Subtle hover effect */
+}
+
+.color-circle.selected {
+  transform: scale(1.15);
+  border: 3px solid currentColor; /* Use current text color to match below */
+}
+
+.color-item.selected .color-circle{
+  box-shadow: 0 0 0 1px #035e5d; /* Optional: subtle glow */
+  transform: scale(1.15);
+}
+
+/* Color Name */
+.color-name {
+  font-size: 0.8rem; /* Slightly smaller font size */
+  color: #333; /* Darker text for contrast */
+  text-align: center;
+  text-transform: capitalize;
+}
+
+/* Reset Button */
+.reset-color {
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: white;
+  color: #444;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.reset-color:hover {
+  background-color: #f0f0f0;
+}
+
+/* Preview Area */
+.preview-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem; /* Add spacing between elements */
+}
+
+.preview-area h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #555;
+  text-align: center;
+  font-size: 1.2rem; /* Adjust font size for better readability */
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  justify-content: center; /* Center-align the text */
+  gap: 0.4rem; /* Add spacing between header and selection text */
+}
+
+#selection-text {
+  font-style: italic;
+  color: #777;
+  font-size: 1rem; /* Slightly smaller font size for the selection text */
+  margin-top: 0.2rem; /* Space between header and selection text */
+}
+
+/* Preview Image Container */
+.preview-image {
+  border: 1px solid #ccc; /* Add a border around the image */
+  border-radius: 8px; /* Rounded corners for the box */
+  overflow: hidden;
+  width: 800px; /* Desktop width */
+  height: 450px; /* Desktop height */
+  max-width: 100%; /* Ensure it scales down on smaller screens */
+  max-height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9; /* Light background for the image box */
+}
+
+/* Preview Image */
+.preview-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+  display: block;
+}
+
+/* Compact Layout */
+.compact-layout {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.colors-section h3 {
+  margin-top: -0rem; /* Remove extra space above the header */
+  margin-bottom: -0-2rem;
+  font-size: 1.2rem; /* Optional: Adjust font size if needed */
+  color: #333; /* Optional: Ensure consistent color */
+}
+
+/* Header Icon Styling */
+.header-icon {
+  font-size: 1rem; /* Adjust icon size */
+  margin-right: -0.3rem; /* Space between icon and text */
+  vertical-align: text-top; /* Align icon with text */
+}
+
+/* Right Panel */
+.right-panel {
+  flex: 2;
+  max-width: calc(100% - 340px); /* Adjust width to fit next to the left panel */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: linear-gradient(30deg, #035e5d23, #035e5d28); /* Subtle off-white/gray gradient */
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+/* Signature Box */
+.signature-box {
+  margin-top: 3.8rem; /* Add spacing above the signature box */
+  padding: 0rem 0rem; /* Add padding for a clean look */
+  text-align: center; /* Center-align the text */
+  font-size: 0.6rem; /* Slightly smaller font size */
+  font-style: italic; /* Italicize the text */
+  color: #555; /* Subtle text color */
+  background: rgba(0, 0, 0, 0.05); /* Light gray background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .design-selector {
+    flex-direction: column; /* Stack panels vertically on smaller screens */
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%; /* Full width for smaller screens */
+    max-width: none;
+  }
+
+  .finishes-grid {
+    grid-template-columns: repeat(2, 1fr); /* Keep two buttons per row */
+  }
+
+  .rooms-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+
+  .preview-image {
+    width: 100%; /* Full width for smaller screens */
+    max-width: 400px; /* Limit the width */
+    height: auto; /* Maintain aspect ratio */
+  }
+}

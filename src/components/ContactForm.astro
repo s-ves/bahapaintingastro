@@ -1,0 +1,152 @@
+---
+// components/ContactForm.astro
+---
+
+<section id="contact" class="contact-section">
+  <div class="form-container">
+    <h2>Book a Consultation</h2>
+    <form name="contact" method="POST" data-netlify="true">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <input type="email" name="email" placeholder="Email (optional)" />
+      <textarea name="message" placeholder="Tell us about your project..." required></textarea>
+      <button type="submit" class="action-button">
+        <i class="fas fa-paper-plane"></i> Send Inquiry
+      </button>
+    </form>
+  </div>
+  <div class="call-to-action">
+    <img src="/images/discuss-project.png" alt="Discuss Your Project" class="call-to-action-image" />
+    <h3>Ready to Discuss Your Project?</h3>
+    <p>Schedule a free call with our experts to discuss your vision.</p>
+    <a href="tel:+10002221122" class="action-button">
+      <i class="fas fa-phone-alt"></i> Schedule a Call
+    </a>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    background: #f9f9f9; /* Light gray background for cohesion */
+    padding: 3rem 2rem;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start; /* Align items at the top */
+  }
+
+  .contact-section > div {
+    flex: 1 1 300px;
+    max-width: 400px;
+    background: white; /* White background for contrast */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+
+  .contact-section h2,
+  .contact-section h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+
+  form[name="contact"] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  form input[type="text"],
+  form input[type="tel"],
+  form input[type="email"],
+  form textarea {
+    padding: 0.75rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+
+  form textarea {
+    min-height: 120px;
+  }
+
+  /* Action Buttons (Send Inquiry & Schedule a Call) */
+  .action-button {
+    background-color: black; /* Default black background */
+    color: white; /* White text */
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between icon and text */
+    opacity: 0.9; /* Dimmed by default */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-decoration: none; /* Remove underline for links */
+    justify-content: center; /* Center-align content */
+  }
+
+  .action-button i {
+    font-size: 1rem;
+    vertical-align: middle;
+    color: #035e5d; /* Cream color for icons */
+    transition: color 0.3s ease;
+  }
+
+  .action-button:hover {
+    background-color: #035e5d; /* Light up on hover */
+    color: white;
+    transform: translateY(-1px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+  }
+
+  .action-button:hover i {
+    color: white; /* Icon color changes to white on hover */
+  }
+
+  .call-to-action {
+    text-align: center;
+  }
+
+  .call-to-action img {
+    width: 100%; /* Make the image responsive */
+    max-width: 395px; /* Limit the maximum width */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 1rem; /* Add spacing below the image */
+    border-radius: 8px; /* Add rounded corners for a polished look */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+
+  .call-to-action p {
+    margin-bottom: 1.5rem;
+    color: #555;
+  }
+
+  .call-to-action a {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .contact-section {
+      flex-direction: column; /* Stack sections vertically */
+      gap: 1.5rem;
+    }
+
+    .contact-section > div {
+      max-width: 100%; /* Full width for smaller screens */
+    }
+  }
+</style>

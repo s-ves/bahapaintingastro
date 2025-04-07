@@ -1,0 +1,103 @@
+---
+// components/IntroSection.astro
+---
+
+<section class="intro-section">
+  <div class="intro-card">
+    <h1>Use Our New App: Wall Designer</h1>
+    <p>
+      Explore stunning finishes, colors, and room designs to create a space that reflects your unique style and personality.
+    </p>
+    <p>
+      Once you've crafted your dream look, <a href="#contact" class="cta-button contact-scroll">contact us ✨</a> to bring it to life!
+    </p>
+  </div>
+</section>
+
+<style>
+  /* Intro Section Background */
+  .intro-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    background: #f5f5f5;
+  }
+
+  /* Card-Like Box */
+  .intro-card {
+    background: #ffffff94; /* White card background */
+    padding: 0rem 1rem;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Subtle shadow for elevation */
+    max-width: 1200px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out; /* Smooth fade-in animation */
+  }
+
+  /* Heading Style */
+  .intro-card h1 {
+    font-size: 2.5rem;
+    color: #000a0a; /* Match brand color */
+    margin-bottom: 0rem;
+    font-weight: 700;
+  }
+
+  /* Paragraph Style */
+  .intro-card p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Call-to-Action Button */
+  .cta-button {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 0.2rem 0.4rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+
+  .cta-button:hover {
+    background-color: #035e5d; /* Darker hover color */
+    transform: translateY(-2px); /* Slight lift on hover */
+  }
+
+  /* Fade-In Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactButton = document.querySelector('.contact-scroll');
+
+    if (contactButton) {
+      contactButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default anchor behavior
+        const targetSection = document.querySelector('#contact');
+        if (targetSection) {
+          targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center', // Center the section on the screen
+          });
+        }
+      });
+    }
+  });
+</script>

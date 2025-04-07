@@ -1,0 +1,81 @@
+---
+// components/PartnerBrands.astro
+---
+
+<section class="partner-brands">
+  <div class="partner-brands-container">
+    <h2>Partner Brands</h2>
+    <div class="logo-slider">
+      <div class="logo-wrapper">
+        <img src="/partnerbrands/Meoded.png" class="logo" alt="Meoded Paint and Plaster" />
+        <img src="/partnerbrands/Portola.png" class="logo" alt="Portola Paints & Glazes" />
+        <img src="/partnerbrands/Benjamin-Moore.png" class="logo benjamin-moore" alt="Benjamin Moore" />
+        <img src="/partnerbrands/Sherwin-Williams.png" class="logo" alt="Sherwin-Williams" />
+        <img src="/partnerbrands/Behr.png" class="logo" alt="Behr" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Section Styling */
+  .partner-brands {
+    background: #ffffffa9; /* Light background for the section */
+    padding: 2rem 1rem; /* Padding around the section */
+    text-align: center;
+  }
+
+  .partner-brands h2 {
+    margin: 0;
+    padding-bottom: 1rem; /* Space below the header */
+    font-size: 2rem; /* Larger font size for the header */
+    font-weight: 700; /* Bold header */
+    color: #333;
+  }
+
+  /* Logo Slider Styling */
+  .logo-slider {
+    padding: 0.5rem 0; /* Padding around the logo slider */
+  }
+
+  .logo-wrapper {
+    display: flex;
+    gap: 2rem; /* Space between logos */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow logos to wrap to the next line */
+  }
+
+  /* Logo Styling */
+  .logo {
+    height: 60px; /* Consistent height for all logos */
+    object-fit: contain;
+    filter: grayscale(80%) brightness(50%); /* Neutral look */
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+
+  .logo:hover {
+    filter: grayscale(0%) brightness(100%); /* Regain color on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+  }
+
+  /* Adjust Benjamin Moore Logo */
+  .logo.benjamin-moore {
+    height: 70px; /* Slightly larger height for Benjamin Moore */
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .logo-wrapper {
+      gap: 1.5rem; /* Reduce gap for smaller screens */
+    }
+
+    .logo {
+      height: 50px; /* Slightly smaller logos on mobile */
+    }
+
+    .logo.benjamin-moore {
+      height: 60px; /* Adjust Benjamin Moore logo for mobile */
+    }
+  }
+</style>

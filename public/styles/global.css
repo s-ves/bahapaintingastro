@@ -1,0 +1,25 @@
+/* FILE: public/styles/global.css */
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  background: #f8f8f8;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  border-top: 1px solid #e0e0e0;
+}
+
+footer hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 1.5rem auto;
+  width: 80%;
+}
