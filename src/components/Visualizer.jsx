@@ -25,7 +25,6 @@ const rooms = [
 
 const colors = [
   { name: 'White', value: '#fff' },
-  { name: 'Off-White', value: '#f8f8f2' },
   { name: 'Beige', value: '#f5f5dc' },
   { name: 'Greige', value: '#a9a98f' },
   { name: 'Blue', value: '#add8e6' },

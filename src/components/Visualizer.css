@@ -1,30 +1,28 @@
-/* Design Selector Layout */
+/* Adjust the design-selector container */
 .design-selector {
   display: flex;
-  gap: 1.5rem; /* Reduced gap between panels */
-  padding: 2rem;
+  gap: 1.5rem; /* Space between panels */
+  padding: 2rem; /* Adjust padding if needed */
   max-width: 1200px;
-  margin: 2rem auto;
+  margin: 2rem auto; /* Center the container */
   background-color: #ffffff57;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  flex-wrap: nowrap; /* Prevent wrapping */
   justify-content: space-between; /* Ensure panels are spaced evenly */
   align-items: flex-start; /* Align panels at the top */
-  overflow: hidden; /* Prevent content overflow */
 }
 
-/* Left Panel */
+/* Adjust the left panel */
 .left-panel {
   flex: 1;
-  max-width: 225px; /* Reduced width for better fit */
+  max-width: 225px; /* Ensure consistent width */
   max-height: 705px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   background: linear-gradient(10deg, #035e5d28, #8e8d7846); /* Subtle off-white/gray gradient */
   border-radius: 16px;
-  padding: 1.5rem; /* Reduced padding */
+  padding: 1.5rem; /* Adjust padding if needed */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   color: #333;
 }
@@ -367,34 +365,47 @@
 /* Responsive Design */
 @media (max-width: 900px) {
   .design-selector {
-    flex-direction: column; /* Stack panels vertically on smaller screens */
+    flex-direction: column;
+    flex-wrap: wrap;            /* Allow panels to wrap */
+    align-items: center;
+    justify-content: center;    /* Center the panels */
+    padding: 1rem;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
   .left-panel,
   .right-panel {
-    width: 100%; /* Full width for smaller screens */
-    max-width: none;
+    width: 100%;                /* Make each panel fill the container */
+    max-width: 300px;           /* Limit the width for consistency */
+    margin: 1rem auto;          /* Center the panels horizontally */
+    flex: unset;                /* Remove existing flex settings */
   }
 
-  .finishes-grid {
-    grid-template-columns: repeat(2, 1fr); /* Keep two buttons per row */
+  .right-panel {
+    max-width: 600px;           /* Override the calc() width */
   }
 
+  .finishes-grid,
   .rooms-grid {
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    justify-content: center;    /* Center grid items */
   }
 
   .preview-image {
-    width: 100%; /* Full width for smaller screens */
-    max-width: 400px; /* Limit the width */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto;
   }
 
-  .color-bar {
-    gap: 0.5rem; /* Reduce spacing between items */
+  .color-bar,
+  .color-bar-container {
+    gap: 0.5rem;
+    justify-content: center;    /* Center the color items */
   }
 
   .color-item {
-    width: 50px; /* Reduce size for smaller screens */
+    width: 50px;
   }
 }
+
