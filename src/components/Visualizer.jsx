@@ -19,6 +19,8 @@ const rooms = [
   { name: 'Outdoor', icon: '🪴' },
   { name: 'Restaurant', icon: '🍽️' },
   { name: 'Cafe', icon: '☕' },
+  { name: 'Law Office', icon: '⚖️' }, // New Law Office
+  { name: 'Hotel', icon: '🏨' },     // New Hotel
 ];
 
 const colorsByVibe = [

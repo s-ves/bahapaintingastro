@@ -26,8 +26,30 @@ const year = new Date().getFullYear();
     <ContactForm />
     <PartnerBrands />
     <footer>
-      <p>000 222 11 22 · <a href="mailto:info@bahapainting.com">info@bahapainting.com</a></p>
+      <p>
+        +1 310 912 67 10 · 
+        <a href="#" id="copy-email" onclick="copyEmail(event)">info@bahapainting.com</a>
+      </p>
       <p>&copy; {year} Baha Painting. All rights reserved.</p>
     </footer>
+    <script>
+          // Extend the Window interface to include the copyEmail property
+          declare global {
+            interface Window {
+              copyEmail: (event: Event) => void;
+            }
+          }
+    
+          // Attach the function to the global window object
+          window.copyEmail = function (event) {
+            event.preventDefault(); // Prevent default link behavior
+            const email = "info@bahapainting.com";
+            navigator.clipboard.writeText(email).then(() => {
+              alert("Email address copied to clipboard!");
+            }).catch((err) => {
+              console.error("Failed to copy email: ", err);
+            });
+          };
+        </script>
   </body>
 </html>

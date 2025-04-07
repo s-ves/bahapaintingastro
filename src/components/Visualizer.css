@@ -18,6 +18,7 @@
 .left-panel {
   flex: 1;
   max-width: 225px; /* Reduced width for better fit */
+  max-height: 705px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -318,7 +319,7 @@
 
 /* Signature Box */
 .signature-box {
-  margin-top: 3.8rem; /* Add spacing above the signature box */
+  margin-top: 0.5rem; /* Add spacing above the signature box */
   padding: 0rem 0rem; /* Add padding for a clean look */
   text-align: center; /* Center-align the text */
   font-size: 0.6rem; /* Slightly smaller font size */
