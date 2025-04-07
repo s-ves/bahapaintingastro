@@ -19,64 +19,34 @@ const rooms = [
   { name: 'Outdoor', icon: '🪴' },
   { name: 'Restaurant', icon: '🍽️' },
   { name: 'Cafe', icon: '☕' },
-  { name: 'Law Office', icon: '⚖️' }, // New Law Office
-  { name: 'Hotel', icon: '🏨' },     // New Hotel
+  { name: 'Law Office', icon: '⚖️' },
+  { name: 'Hotel', icon: '🏨' },
 ];
 
-const colorsByVibe = [
-  {
-    vibe: 'Neutrals',
-    colors: ['White', 'Off-White', 'Beige', 'Light Gray', 'Greige'],
-    colorMap: {
-      'White': '#fff',
-      'Off-White': '#f8f8f2',
-      'Beige': '#f5f5dc',
-      'Light Gray': '#d3d3d3',
-      'Greige': '#a9a98f',
-    },
-  },
-  {
-    vibe: 'Naturals',
-    colors: ['Earthy Brown', 'Terracotta', 'Olive Green', 'Sandy Beige', 'Stone Gray'],
-    colorMap: {
-      'Earthy Brown': '#a0522d',
-      'Terracotta': '#e2725b',
-      'Olive Green': '#808000',
-      'Sandy Beige': '#f0e68c',
-      'Stone Gray': '#8c8c8c',
-    },
-  },
-  {
-    vibe: 'Cool & Serene',
-    colors: ['Light Blue', 'Mint Green', 'Lavender', 'Cool Gray', 'Seafoam'],
-    colorMap: {
-      'Light Blue': '#add8e6',
-      'Mint Green': '#98fb98',
-      'Lavender': '#e6e6fa',
-      'Cool Gray': '#c0c0c0',
-      'Seafoam': '#a7f3d0',
-    },
-  },
-  {
-    vibe: 'Warm & Vibrant',
-    colors: ['Warm Yellow', 'Coral', 'Rust Orange', 'Crimson', 'Goldenrod'],
-    colorMap: {
-      'Warm Yellow': '#ffff00',
-      'Coral': '#ff7f50',
-      'Rust Orange': '#ff8c00',
-      'Crimson': '#dc143c',
-      'Goldenrod': '#daa520',
-    },
-  },
+const colors = [
+  { name: 'White', value: '#fff' },
+  { name: 'Off-White', value: '#f8f8f2' },
+  { name: 'Beige', value: '#f5f5dc' },
+  { name: 'Greige', value: '#a9a98f' },
+  { name: 'Blue', value: '#add8e6' },
+  { name: 'Green', value: '#98fb98' },
+  { name: 'Lavender', value: '#e6e6fa' },
+  { name: 'Gray', value: '#c0c0c0' },
+  { name: 'Seafoam', value: '#a7f3d0' },
+  { name: 'Yellow', value: '#ffff00' },
+  { name: 'Coral', value: '#ff7f50' },
+  { name: 'Orange', value: '#ff8c00' },
+  { name: 'Crimson', value: '#dc143c' },
+  { name: 'Goldenrod', value: '#daa520' },
 ];
 
 const Visualizer = () => {
-  const [finish, setFinish] = useState({ name: 'Limewash', icon: '🎨' }); // Default to Limewash
-  const [room, setRoom] = useState({ name: 'Living Room', icon: '🛋️' }); // Default to Living Room
-  const [color, setColor] = useState('White'); // Default to White
+  const [finish, setFinish] = useState({ name: 'Limewash', icon: '🎨' });
+  const [room, setRoom] = useState({ name: 'Living Room', icon: '🛋️' });
+  const [color, setColor] = useState('White');
 
   const handleColorClick = (c) => {
-    setColor(c); // Set color directly
+    setColor(c.name); // Set color name directly
   };
 
   const scrollColors = (direction) => {
@@ -160,22 +130,19 @@ const Visualizer = () => {
                 ◀
               </button>
               <div className="color-bar">
-                {colorsByVibe.flatMap((vibeGroup) => vibeGroup.colors).map((c) => {
-                  const colorValue = colorsByVibe.find((vibeGroup) => vibeGroup.colorMap[c])?.colorMap[c];
-                  return (
+                {colors.map((c) => (
+                  <div
+                    key={c.name}
+                    className={`color-item ${color === c.name ? 'selected' : ''}`}
+                    onClick={() => handleColorClick(c)}
+                  >
                     <div
-                      key={c}
-                      className={`color-item ${color === c ? 'selected' : ''}`}
-                      onClick={() => handleColorClick(c)}
-                    >
-                      <div
-                        className="color-circle"
-                        style={{ backgroundColor: colorValue }}
-                      />
-                      <span className="color-name">{c}</span>
-                    </div>
-                  );
-                })}
+                      className="color-circle"
+                      style={{ backgroundColor: c.value }}
+                    />
+                    <span className="color-name">{c.name}</span>
+                  </div>
+                ))}
               </div>
               <button className="scroll-button right" onClick={() => scrollColors('right')}>
                 ▶

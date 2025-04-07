@@ -130,50 +130,84 @@
 .color-bar-container {
   display: flex;
   align-items: center;
-  position: relative;
-  gap: 0.5rem; /* Reduced gap between scroll buttons and color bar */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-behavior: smooth; /* Smooth scrolling for touch devices */
+  gap: 1rem; /* Space between color items */
+  padding: 0.5rem; /* Add padding for better touch interaction */
+  border-radius: 8px; /* Rounded edges for a polished look */
+  background: rgba(255, 255, 255, 0.5); /* Subtle background for better visibility */
 }
 
-/* Scroll Buttons */
-.scroll-button {
-  background: transparent; /* Transparent background for a sleek look */
-  border: none; /* Remove border */
-  color: #333; /* Arrow color */
-  font-size: 1.2rem; /* Adjust arrow size */
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: color 0.3s ease, transform 0.2s ease;
+/* Hide scrollbars for a cleaner look */
+.color-bar-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar on WebKit browsers */
 }
 
-.scroll-button:hover {
-  color: #035e5d; /* Highlight color on hover */
-  transform: scale(1.2); /* Slightly enlarge on hover */
+.color-bar-container {
+  -ms-overflow-style: none; /* Hide scrollbar on IE/Edge */
+  scrollbar-width: none; /* Hide scrollbar on Firefox */
 }
 
-/* Horizontal Scrollable Color Bar */
+/* Color Bar */
 .color-bar {
-  display: flex;
-  gap: 0.8rem; /* Reduced gap between color items */
-  overflow: hidden;
-  scroll-behavior: smooth;
-  flex: 1;
-  padding: 0.5rem 0; /* Top & bottom padding */
-  padding-left: 0.5rem; /* 👈 New: space before first circle */
+  display: flex; /* Make the color bar a horizontal flex container */
+  flex-wrap: nowrap; /* Prevent wrapping to the next line */
+  gap: 1rem; /* Add spacing between color items */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  padding: 0.5rem; /* Add padding for better touch interaction */
+  scroll-behavior: smooth; /* Smooth scrolling for touch devices */
+}
+
+.color-bar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for a cleaner look */
+}
+
+.color-bar {
+  -ms-overflow-style: none; /* Hide scrollbar on IE/Edge */
+  scrollbar-width: none; /* Hide scrollbar on Firefox */
 }
 
 /* Color Items */
 .color-item {
+  flex: 0 0 auto; /* Prevent items from shrinking */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.3rem; /* Reduced gap between circle and name */
+  justify-content: center;
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  text-align: center;
+  width: 60px; /* Fixed width for each color item */
+}
+
+.color-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.color-item.selected .color-circle {
+  border-color: #035e5d; /* Highlight selected color */
+}
+
+.color-name {
+  font-size: 0.8rem;
+  color: #333;
+}
+
+/* Color Items */
+.color-item {
   flex: 0 0 auto; /* Prevent shrinking and ensure proper spacing */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-align: center;
+  width: 60px; /* Fixed width for each color item */
 }
 
 .color-item:hover {
@@ -291,7 +325,7 @@
 
 .colors-section h3 {
   margin-top: -0rem; /* Remove extra space above the header */
-  margin-bottom: -0-2rem;
+  margin-bottom: 0.2rem;
   font-size: 1.2rem; /* Optional: Adjust font size if needed */
   color: #333; /* Optional: Ensure consistent color */
 }
@@ -354,5 +388,13 @@
     width: 100%; /* Full width for smaller screens */
     max-width: 400px; /* Limit the width */
     height: auto; /* Maintain aspect ratio */
+  }
+
+  .color-bar {
+    gap: 0.5rem; /* Reduce spacing between items */
+  }
+
+  .color-item {
+    width: 50px; /* Reduce size for smaller screens */
   }
 }
