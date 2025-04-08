@@ -157,27 +157,108 @@ import Icon from 'astro-icon';
     border-radius: 8px; /* Optional: Add rounded corners */
   }
 
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .contact-section {
-      flex-direction: column; /* Stack sections vertically */
-      gap: 1.5rem;
-    }
-
-    .contact-section > div {
-      max-width: 100%; /* Full width for smaller screens */
-    }
-
-    .call-to-action {
-      align-items: center;
-      text-align: center;
-    }
-
-    .interactive-icons-container {
-      min-height: auto; /* Adjust height for stacked layout */
-      margin-bottom: 1rem;
-    }
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column; /* Stack sections vertically */
+    gap: 1.5rem; /* Add spacing between stacked sections */
+    padding: 2rem 1rem; /* Adjust padding for smaller screens */
   }
+
+  .contact-section > div {
+    max-width: 90%; /* Full width for smaller screens */
+    min-height: auto; /* Remove fixed height for flexibility */
+    padding: 1rem; /* Reduce padding for smaller screens */
+  }
+
+  .form-container h2 {
+    font-size: 1.5rem; /* Adjust font size for better readability */
+  }
+
+  .form-container p {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
+
+  form[name="contact"] {
+    gap: 0.6rem; /* Reduce spacing between form elements */
+  }
+
+  form input[type="text"],
+  form input[type="tel"],
+  form input[type="email"],
+  form textarea {
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
+    padding: 0.6rem; /* Reduce padding for inputs */
+  }
+
+  .action-button {
+    font-size: 0.9rem; /* Adjust button font size */
+    padding: 0.5rem 1rem; /* Reduce button padding */
+    min-width: auto; /* Remove fixed width for buttons */
+  }
+
+  .call-to-action {
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text */
+  }
+
+  .interactive-icons-container {
+    height: 200px; /* Adjust height for smaller screens */
+    margin-bottom: 1rem; /* Add spacing below the image */
+  }
+
+  .interactive-image {
+    max-width: 80%; /* Scale down the image */
+    max-height: 100%; /* Ensure it fits within the container */
+  }
+}
+
+/* Responsive Design for Tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .contact-section {
+    display: flex;
+    flex-direction: row; /* Arrange sections side by side */
+    gap: 2rem; /* Add spacing between the two sections */
+    padding: 2rem; /* Adjust padding for tablets */
+    justify-content: space-between; /* Space out the sections evenly */
+    align-items: flex-start; /* Align sections to the top */
+  }
+
+  .contact-section > div {
+    max-width: 50%; /* Ensure they fit nicely within the container */
+    min-height: 555px; /* Remove fixed height for flexibility */
+    padding: 1.5rem; /* Adjust padding for better spacing */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out content evenly */
+  }
+
+  .call-to-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out content evenly */
+    align-items: flex-start; /* Align content to the left */
+    text-align: left; /* Align text to the left */
+  }
+
+  .interactive-icons-container {
+    height: 250px; /* Adjust height for tablets */
+    margin-bottom: 1rem; /* Add spacing below the image */
+  }
+
+  .interactive-image {
+    max-width: 100%; /* Ensure the image scales properly */
+    max-height: 100%; /* Ensure the image fits within the container */
+  }
+}
+
+
+
+
 </style>
 
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
