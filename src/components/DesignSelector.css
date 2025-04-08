@@ -1,0 +1,362 @@
+/* ========= Visualizer.css ========= */
+
+/* ========== Base Styles ========== */
+.design-selector {
+  display: flex;
+  flex-direction: column; /* Stack panels vertically on mobile */
+  gap: 1.5rem;
+  padding: 1rem;
+  margin: 2rem auto;
+  max-width: 100%;
+  background-color: #ffffff57;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  align-items: center; /* Center panels horizontally */
+  justify-content: center;
+  position: relative; /* Ensure proper stacking context */
+}
+
+.left-panel {
+  width: 100%;
+  max-width: 300px; /* Mobile max width */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: linear-gradient(10deg, #035e5d28, #8e8d7846);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+  z-index: 1; /* Ensure left panel is above other elements */
+}
+
+.right-panel {
+  width: 100%;
+  max-width: 300px; /* Mobile max width */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: linear-gradient(10deg, #035e5d28, #8e8d7846);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.left-panel h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #555;
+  text-align: left;
+}
+
+/* Signature Box */
+.signature-box {
+  margin-top: 0.5rem;
+  padding: 0;
+  text-align: center;
+  font-size: 0.6rem;
+  font-style: italic;
+  color: #555;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Preview Area */
+.preview-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-grow: 1; /* Allow it to take up remaining space */
+  z-index: 0; /* Ensure it doesn't overlap the left panel */
+}
+
+.preview-area h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #333; /* Darker color for better contrast */
+  text-align: center;
+  font-size: 1.2rem; /* Slightly larger font size */
+  font-weight: bold; /* Make it stand out */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+#selection-text {
+  font-style: italic;
+  color: #555; /* Darker color for better readability */
+  font-size: 1rem; /* Slightly larger font size */
+  margin-top: 0.5rem; /* Add spacing */
+  text-align: center; /* Center align */
+}
+
+.preview-image {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 335px; /* Desktop width */
+  max-height: 240px; /* Desktop height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+}
+
+.preview-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Compact Layout */
+.compact-layout {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.scroll-button {
+  display: none; /* Hide both left and right scroll buttons */
+}
+
+
+/* Tablet Layout: Adjust layout for screens between 768px and 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .design-selector {
+    display: flex;
+    flex-direction: row; /* Arrange panels side by side */
+    align-items: flex-start; /* Align items to the top */
+    width: 100%; /* Use full width of the container */
+    max-width: 720px; /* Scale down the container width for tablets */
+    margin: 1.5rem auto; /* Center the container with smaller margins */
+    gap: 0.8rem; /* Reduce spacing between left and right panels */
+  }
+
+  .left-panel {
+    flex: 0 0 250px; /* Reduce width for the left panel */
+    max-width: 250px; /* Prevent it from growing */
+    flex-shrink: 0; /* Prevent shrinking */
+    height: 690px; /* Scale down the height for tablets */
+  }
+
+  .right-panel {
+    flex: 1; /* Allow the right panel to grow and fill remaining space */
+    min-width: 350px; /* Reduce minimum width for the right panel */
+    min-height: 670px;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    gap: 1rem; /* Add spacing between elements inside the right panel */
+  }
+
+  .colors-section {
+    min-width: 35px; /* Reduce minimum width */
+    min-height: 150px;
+    background-color: #f9f9f9; /* Add a background color for visibility */
+    padding: 1rem; /* Adjust padding for spacing */
+  }
+
+  /* Color Bar Container */
+  .color-bar-container {
+    width: 90%; /* Make it smaller to fit nicely in the center */
+    margin: auto; /* Center it horizontally within the colors section */
+    box-sizing: border-box; /* Include padding in the width calculation */
+  }
+
+  /* Color Bar */
+  .color-bar {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping of color options */
+    gap: 0.5rem; /* Add spacing between color options */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding: 0.5rem 0; /* Add some vertical padding */
+  }
+
+  .preview-area {
+    flex-grow: 1; /* Allow the preview area to grow within the right panel */
+    min-height: 465px; /* Scale down the height for tablets */
+    padding: 1rem; /* Adjust padding for spacing */
+  }
+
+  .preview-image {
+    max-width: 100%; /* Allow the image to grow with the container */
+    max-height: 600px; /* Scale down the height for tablets */
+  }
+
+  .preview-area h3 {
+    font-size: 1.5rem; /* Adjust font size for better readability */
+  }
+
+  #selection-text {
+    margin-top: 0.5rem;
+    font-size: 1.2rem; /* Adjust font size */
+    line-height: 1.6; /* Adjust line height for better spacing */
+  }
+}
+
+/* Larger screens: Adjust layout for laptops and desktops */
+@media (min-width: 1024px) {
+  .design-selector {
+    display: flex;
+    flex-direction: row; /* Arrange panels side by side */
+    align-items: flex-start; /* Align items to the top */
+    width: 100%; /* Use full width of the container */
+    max-width: 960px; /* Increase container width for larger screens */
+    margin: 2rem auto; /* Center the container */
+    gap: 1rem; /* Add spacing between left and right panels */
+  }
+
+  .left-panel {
+    max-width: 300px; /* Prevent it from growing */
+    flex-shrink: 0; /* Prevent shrinking */
+    height: 727px;
+  }
+
+  .right-panel {
+    flex: 1; /* Allow the right panel to grow and fill remaining space */
+    min-width: 550px; /* Prevent flexbox overflow issues */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    gap: 1rem; /* Add spacing between elements inside the right panel */
+  }
+
+  /* Colors Section */
+  .colors-section {
+    flex-grow: 1; /* Allow the colors section to grow and take up available space */
+    min-width: 525px;
+    display: flex;
+    flex-direction: column; /* Stack content vertically if needed */
+    justify-content: center; /* Center content vertically */
+    align-items: flex-start; /* Align content to the left */
+    background-color: #f9f9f9; /* Add a background color for visibility */
+    padding: 1rem; /* Add padding for spacing */
+    border-radius: 8px; /* Add rounded corners */
+    overflow: hidden; /* Prevent content from overflowing */
+    position: relative; /* Ensure proper positioning for scrollable content */
+  }
+
+  /* Color Bar Container */
+  .color-bar-container {
+    width: 95%; /* Make it smaller to fit nicely in the center */
+    margin: auto; /* Center it horizontally within the colors section */
+    box-sizing: border-box; /* Include padding in the width calculation */
+  }
+
+  /* Color Bar */
+  .color-bar {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping of color options */
+    gap: 0.5rem; /* Add spacing between color options */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scrollbar-width: thin; /* For modern browsers, make the scrollbar thin */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+    padding: 0.5rem 0; /* Add some vertical padding */
+  }
+
+  .preview-area {
+    flex-grow: 1; /* Allow the preview area to grow within the right panel */
+    min-height: 500px; /* Ensure enough height for the preview area */
+    background-color: #f9f9f952; /* Add a background color for visibility */
+    border-radius: 8px; /* Add rounded corners */
+    padding: 1.5rem; /* Add padding for spacing */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: flex-start; /* Align inner content to the left */
+    gap: 1rem; /* Add spacing between elements */
+  }
+
+  .preview-area h3 {
+    text-align: left; /* Align the heading to the left */
+    margin-bottom: 1rem; /* Add spacing below the heading */
+    font-size: 1.8rem; /* Increase font size for better readability */
+    color: #333; /* Ensure good contrast */
+  }
+
+  #selection-text {
+    text-align: left; /* Align the text to the left */
+    margin: 1rem 0; /* Add spacing above and below */
+    font-size: 1.4rem; /* Increase font size */
+    line-height: 1.6; /* Add line height for better spacing */
+    color: #555; /* Ensure good contrast */
+  }
+
+  .preview-image {
+    align-self: center; /* Center the image horizontally */
+    max-width: 100%; /* Allow the image to grow with the container */
+    max-height: 600px; /* Increase height for larger screens */
+    border: 1px solid #ccc; /* Add a border for better visibility */
+    border-radius: 8px; /* Add rounded corners */
+    overflow: hidden; /* Ensure content doesn't overflow */
+    background-color: #fff; /* Add a white background */
+  }
+
+  .preview-image img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the container */
+  }
+}
+
+/* Larger screens: Adjust layout for 1440px and above */
+@media (min-width: 1440px) {
+  .design-selector {
+    max-width: 1200px; /* Increase container width for larger screens */
+    margin: 2rem auto; /* Center the container */
+    gap: 2rem; /* Add more spacing between left and right panels */
+  }
+
+  .left-panel {
+    max-width: 300px; /* Prevent it from growing */
+    height: 850px; /* Increase height for larger screens */
+  }
+
+  .right-panel {
+    flex: 1; /* Allow the right panel to grow and fill remaining space */
+    min-width: 750px; /* Increase minimum width for the right panel */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    gap: 1.5rem; /* Add more spacing between elements inside the right panel */
+  }
+
+  .colors-section {
+    flex-grow: 1; /* Allow the colors section to grow and take up available space */
+    min-width: 725px; /* Increase minimum width */
+    padding: 1.5rem; /* Add more padding for spacing */
+  }
+
+  .color-bar-container {
+    width: 95%; /* Make it slightly smaller to fit nicely in the center */
+    margin: auto; /* Center it horizontally within the colors section */
+  }
+
+  .preview-area {
+    flex-grow: 1; /* Allow the preview area to grow within the right panel */
+    min-height: 600px; /* Increase height for larger screens */
+    padding: 2rem; /* Add more padding for spacing */
+  }
+
+  .preview-image {
+    max-width: 100%; /* Allow the image to grow with the container */
+    max-height: 700px; /* Increase height for larger screens */
+  }
+
+  .preview-area h3 {
+    font-size: 2rem; /* Increase font size for better readability */
+  }
+
+  #selection-text {
+    margin-top: 0.5rem;
+    font-size: 1.5rem; /* Increase font size */
+    line-height: 1.8; /* Add more line height for better spacing */
+  }
+}
+
+
+
+
+
