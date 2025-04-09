@@ -38,14 +38,14 @@ class Visualizer extends Component {
 
   getImagePath = () => {
     const { finish, room, color } = this.state;
-    const defaultPath = '/images/limewash_living-room_white.png';
+    const defaultPath = '/images/limewash/living-room_white.png';
     if (!finish && !room && !color) return defaultPath;
 
     const finishName = finish?.name?.toLowerCase().replace(/\s+/g, '-') || 'limewash';
     const roomName = room?.name?.toLowerCase().replace(/\s+/g, '-') || 'living-room';
     const colorName = color ? `_${color.toLowerCase().replace(/\s+/g, '-')}` : '';
 
-    return `/images/${finishName}_${roomName}${colorName}.png`;
+    return `/images/${finishName}/${finishName}_${roomName}${colorName}.png`;
   };
 
   render() {
