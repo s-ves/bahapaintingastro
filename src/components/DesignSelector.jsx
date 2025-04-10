@@ -172,7 +172,7 @@ class Visualizer extends Component {
             {/* Preview Area */}
             <div className="preview-area">
               <h3>
-                Your Selection:  
+                Your Selection:
                 <span id="selection-text">
                   {finish ? finish.name : 'No Finish'} | {room ? room.name : 'No Room'} | {color ? color : 'No Color'}
                 </span>
@@ -180,6 +180,10 @@ class Visualizer extends Component {
               <div className="preview-image">
                 <img
                   src={this.getImagePath()}
+                  onError={(e) => {
+                    e.target.onerror = null; // Prevent infinite loop if fallback fails
+                    e.target.src = '/images/fallback.png';
+                  }}
                   alt={`${finish ? finish.name : 'No Finish'} | ${room ? room.name : 'No Room'} | ${color ? color : 'No Color'}`}
                 />
               </div>
